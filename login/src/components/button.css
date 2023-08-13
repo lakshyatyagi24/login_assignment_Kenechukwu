@@ -1,0 +1,13 @@
+.login_btn {
+  width: 100%;
+  outline: none;
+  background-color: blueviolet;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 0.6rem;
+}
+.login_btn:hover {
+  background-color: rgb(161, 94, 223);
+  cursor: pointer;
+}
