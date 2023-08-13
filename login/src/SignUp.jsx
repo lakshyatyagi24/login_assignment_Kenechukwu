@@ -5,13 +5,17 @@ import ButtonComp from "./components/button";
 import "./SignUp.css";
 import { FaSpinner } from "react-icons/fa";
 import PasswordInput from "./components/passwordInput";
+import { ToastContainer, toast } from "react-toastify";
+
+import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisibility] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const navigate = useNavigate();
   const handlePasswordVisibility = () => {
     setPasswordVisibility(!passwordVisible);
   };
@@ -21,16 +25,23 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setIsLoading(false);
+        toast.success("Signup successful!");
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+
         console.log(userCredential);
       })
       .catch((error) => {
         setIsLoading(false);
+        toast.error(error);
         console.log(error);
       });
   };
 
   return (
     <div className="sign-in-container">
+      <ToastContainer />
       <form onSubmit={signUp}>
         <h1>Create Account</h1>
         <div>
