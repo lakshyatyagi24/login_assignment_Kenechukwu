@@ -16,6 +16,9 @@ label {
   font-weight: 600;
   margin-bottom: 0.7rem;
 }
+.login_message {
+  color: rgb(72, 72, 72);
+}
 .link_signup {
   text-decoration: none;
 }
